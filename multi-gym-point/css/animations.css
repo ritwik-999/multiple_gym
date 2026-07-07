@@ -1,0 +1,18 @@
+.btn, .filter, .gallery-item, .program-card, .nav-links a {
+  transition: opacity 0.25s ease, transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+.btn:hover, .filter:hover {
+  transform: translateY(-2px);
+}
+.program-card:hover, .gallery-item:hover {
+  filter: grayscale(0);
+}
+.hero-stage img, .editorial img, .program-card, .gallery-item {
+  will-change: transform;
+}
+.floating-whatsapp {
+  transition: transform 0.25s ease;
+}
+.floating-whatsapp:hover {
+  transform: translateY(-4px);
+}
