@@ -54,9 +54,6 @@ No build tools are required — this is a static site.
    ```
 3. Visit `http://localhost:<port>` in your browser.
 
-## Deployment
-
-The project is deployed on [Vercel](https://vercel.com).
 
 ## Contributing
 
