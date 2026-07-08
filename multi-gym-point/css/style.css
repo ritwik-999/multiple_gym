@@ -29,6 +29,9 @@ body {
   background: var(--paper);
   line-height: 1.45;
 }
+body.is-loading {
+  overflow: hidden;
+}
 body::selection {
   background: var(--accent);
   color: white;
@@ -44,6 +47,115 @@ input {
 img {
   display: block;
   max-width: 100%;
+}
+
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: var(--paper);
+  transition:
+    opacity 0.45s ease,
+    visibility 0.45s ease;
+}
+.page-loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.loader-mark {
+  position: relative;
+  width: min(320px, 62vw);
+  aspect-ratio: 1;
+}
+.loader-bar,
+.loader-plate {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  background: var(--ink);
+  transform: translate(-50%, -50%);
+}
+.loader-bar {
+  width: 66%;
+  height: 6.6%;
+  border-radius: 999px;
+  animation: loader-bar-in 1.9s cubic-bezier(0.26, 0, 0.03, 1) infinite;
+}
+.loader-plate {
+  width: 7.6%;
+  border-radius: 999px;
+}
+.plate-inner {
+  height: 37.5%;
+}
+.plate-outer {
+  height: 27.2%;
+}
+.plate-left.plate-inner {
+  animation: loader-left-inner 1.9s cubic-bezier(0, 0, 0, 1) infinite;
+}
+.plate-left.plate-outer {
+  animation: loader-left-outer 1.9s cubic-bezier(0.05, 0, 0, 1) infinite;
+}
+.plate-right.plate-inner {
+  animation: loader-right-inner 1.9s cubic-bezier(0, 0, 0, 1) infinite;
+}
+.plate-right.plate-outer {
+  animation: loader-right-outer 1.9s cubic-bezier(0.05, 0, 0, 1) infinite;
+}
+
+@keyframes loader-bar-in {
+  0%,
+  26% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes loader-left-inner {
+  0%,
+  26% {
+    transform: translate(-170%, -50%);
+  }
+  73%,
+  100% {
+    transform: translate(-530%, -50%);
+  }
+}
+@keyframes loader-left-outer {
+  0%,
+  30% {
+    transform: translate(-215%, -50%);
+  }
+  77%,
+  100% {
+    transform: translate(-575%, -50%);
+  }
+}
+@keyframes loader-right-inner {
+  0%,
+  26% {
+    transform: translate(70%, -50%);
+  }
+  73%,
+  100% {
+    transform: translate(430%, -50%);
+  }
+}
+@keyframes loader-right-outer {
+  0%,
+  30% {
+    transform: translate(115%, -50%);
+  }
+  77%,
+  100% {
+    transform: translate(475%, -50%);
+  }
 }
 
 .top-line {
